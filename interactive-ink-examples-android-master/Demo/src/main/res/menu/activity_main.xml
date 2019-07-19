@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_newPart"
+        android:icon="@drawable/ic_add"
+        android:title="@string/menu_newPart"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_previousPart"
+        android:icon="@drawable/ic_previous"
+        android:title="@string/menu_previousPart"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_nextPart"
+        android:icon="@drawable/ic_next"
+        android:title="@string/menu_nextPart"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_zoomIn"
+        android:icon="@drawable/ic_zoom_in"
+        android:title="@string/menu_zoomIn"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_zoomOut"
+        android:icon="@drawable/ic_zoom_out"
+        android:title="@string/menu_zoomOut"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_resetView"
+        android:title="@string/menu_resetView"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/menu_convert"
+        android:title="@string/menu_convert"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_export"
+        android:title="@string/menu_export"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_newPackage"
+        android:title="@string/menu_newPackage"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_openPackage"
+        android:title="@string/menu_openPackage"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_savePackage"
+        android:title="@string/menu_savePackage"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_add_word"
+        android:title="@string/add_custom_word"
+        app:showAsAction="never" />
+</menu>

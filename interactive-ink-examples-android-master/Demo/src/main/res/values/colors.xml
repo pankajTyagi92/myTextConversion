@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorAccent">#e91e63</color>
+    <color name="colorPrimary">#448aff</color>
+    <color name="colorPrimaryDark">#3f51b5</color>
+    <color name="toolbar_icon_disabled">#61ffffff</color>
+    <color name="toolbar_icon_enabled">#ffffffff</color>
+    <color name="image_button_disabled">@android:color/darker_gray</color>
+    <color name="image_button_enabled">@color/colorPrimary</color>
+    <color name="black">#000000</color>
+    <color name="border_color">#d8d8d8</color>
+    <color name="dark_blue">#116a91</color>
+</resources>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/add_word"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_28dp"
+        android:layout_marginTop="@dimen/dimen_22dp"
+        android:padding="@dimen/dimen_8dp"
+        android:text="@string/add_word"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_18sp" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/add_word_editor_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_26dp"
+        android:layout_marginTop="@dimen/dimen_25dp"
+        android:layout_marginEnd="@dimen/dimen_20dp"
+        android:theme="@style/Theme.App.text"
+        app:errorEnabled="true">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/add_word_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/add_word"
+            android:textColorHint="@color/dark_blue" />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1dp"
+        android:layout_marginTop="@dimen/dimen_28dp"
+        android:background="@color/border_color" />
+
+    <Button
+        android:id="@+id/add_word_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dimen_22dp"
+        android:layout_marginBottom="@dimen/dimen_22dp"
+        android:paddingStart="@dimen/dimen_28dp"
+        android:paddingTop="@dimen/dimen_12dp"
+        android:paddingEnd="@dimen/dimen_28dp"
+        android:text="@string/add"
+        android:textColor="@color/dark_blue"
+        android:textSize="@dimen/text_size_16sp" />
+
+    <Button
+        android:id="@+id/add_word_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dimen_12dp"
+        android:paddingStart="@dimen/dimen_28dp"
+        android:paddingTop="@dimen/dimen_12dp"
+        android:paddingEnd="@dimen/dimen_28dp"
+        android:paddingBottom="@dimen/dimen_12dp"
+        android:text="Close"
+        android:textColor="@color/dark_blue"
+        android:textSize="@dimen/text_size_16sp" />
+</LinearLayout>
