@@ -8,7 +8,4 @@ build/
 local.properties
 
 
-/GetStarted/src/main/assets/conf
-/GetStarted/src/main/assets/resources
-
 .DS_Store

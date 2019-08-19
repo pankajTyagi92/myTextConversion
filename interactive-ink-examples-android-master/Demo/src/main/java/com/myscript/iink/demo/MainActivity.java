@@ -655,8 +655,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         AssetManager assetManager = this.getAssets();
         try {
             InputStream inputStreamEn_Us_ak_file = assetManager.open("resources/en_US/en_US-ak-cur.res");
-            InputStream inputStreamEn_Us_text_file = assetManager.open("resources/en_US/en_US-lk-text.res");
-            saveAssetsFile(inputStreamEn_Us_ak_file, inputStreamEn_Us_text_file);
+            InputStream inputStreamEn_test_file = assetManager.open("resources/en_US/test.res");
+            InputStream inputStreamEn_Us_Grm_file = assetManager.open("resources/en_US/en_US-lk-grm.res");
+            saveAssetsFile(inputStreamEn_Us_ak_file, inputStreamEn_test_file, inputStreamEn_Us_Grm_file);
         } catch (IOException e) {
             e.printStackTrace();
 
@@ -667,22 +668,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * Method to copy the resource file from asset folder to local storage
      *
      * @param akFileInputStream
-     * @param inputLk_text
      */
-    public void saveAssetsFile(InputStream akFileInputStream, InputStream inputLk_text) {
+    public void saveAssetsFile(InputStream akFileInputStream, InputStream test_resource_file, InputStream input_grm_file) {
         // mDoctorAppActivityModel.saveAssetsFile(akFileInputStream, grmFileInputStream, inputLk_text);
         Log.d(TAG, "saveAssetsFile() ");
         File directory = new ContextWrapper(this).getDir("sample", MODE_PRIVATE);
         Log.d(TAG, "directory path : " + directory.getPath());
         File akResourceFile = new File(directory, "en_US-ak-cur.res");
-        File lkTextResourceFile = new File(directory, "en_US-lk-text.res");
-        if (akResourceFile.exists() && lkTextResourceFile.exists())
+        File testResourceFile = new File(directory, "en_test.res");
+        File grmResourceFile = new File(directory, "en_grm.res");
+        if (akResourceFile.exists() && testResourceFile.exists() && grmResourceFile.exists())
             return;
         int size, read;
         byte[] buffer;
         OutputStream out;
         try {
             //to copy AK resource file
+
 
             if (!akResourceFile.exists()) {
                 akResourceFile.createNewFile();
@@ -693,15 +695,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             while ((read = akFileInputStream.read(buffer)) != -1) {
                 out.write(buffer, 0, read);
             }
+            //to copy grammer file
 
-            //to copy lk resource file
-            if (!lkTextResourceFile.exists()) {
-                lkTextResourceFile.createNewFile();
+            if (!grmResourceFile.exists()) {
+                grmResourceFile.createNewFile();
             }
-            size = inputLk_text.available();
+            size = input_grm_file.available();
             buffer = new byte[size];
-            out = new FileOutputStream(lkTextResourceFile);
-            while ((read = inputLk_text.read(buffer)) != -1) {
+            out = new FileOutputStream(grmResourceFile);
+            while ((read = input_grm_file.read(buffer)) != -1) {
+                out.write(buffer, 0, read);
+            }
+            //to copy lk resource file
+            if (!testResourceFile.exists()) {
+                testResourceFile.createNewFile();
+            }
+            size = test_resource_file.available();
+            buffer = new byte[size];
+            out = new FileOutputStream(testResourceFile);
+            while ((read = test_resource_file.read(buffer)) != -1) {
                 out.write(buffer, 0, read);
             }
 
