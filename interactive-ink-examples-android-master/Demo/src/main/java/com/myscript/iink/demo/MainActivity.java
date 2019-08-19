@@ -577,28 +577,50 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // Below are the methods added  by us
 
     /**
+     * Method will dispose the require reference of text Conversion Module
+     */
+    private void clearEditorBeforeSetConfiguration() {
+        Log.d(TAG, "clearEditorBeforeSetConfiguration() ");
+
+        //Editor editor = editorView.getEditor();
+        if (documentController.currentPart != null) {
+            documentController.currentPart.close();
+            documentController.currentPart = null;
+        }
+        documentController.currentPart = documentController.currentPackage.getPart(0);
+
+        if (documentController.currentPart != null) {
+            documentController.currentPart.close();
+            documentController.currentPart = null;
+        }
+        Editor editor = editorView.getEditor();
+        editor.setPart(null);
+        editor.clear();
+      /*  mEditor.waitForIdle();
+
+        mEditor.getPart().close();
+        mEditor.setPart(null);
+        mEditor.clear();*/
+    }
+
+    /**
      * Method will set the configuration after adding custom word and generating resource file.
      */
     public void setConfiguration() {
         Log.d(TAG, "setConfiguration()");
-        if (documentController.currentPart != null) {
+       /* if (documentController.currentPart != null) {
             documentController.currentPart.close();
             documentController.currentPart = null;
         }
         documentController.currentPart = documentController.currentPackage.getPart(0);
         // There are two crashes in this method  (at line - editor.setPart(null);)
 
-        /* first Crash:
+        *//* first Crash:
          * java.lang.IllegalStateException: com.myscript.iink.ContentPackage closed.
          *
-         */
+         *//*
 
-        /*
-         * Second crash:
-         * com.myscript.iink.demo A/libc: Fatal signal 6 (SIGABRT), code -6 in tid 5087 (cript.iink.demo)
-         *
-         * this crash happen when we comment the below three lines
-         * */
+
         if (documentController.currentPackage != null) {
             documentController.currentPackage.close();
             documentController.currentPart = null;
@@ -606,13 +628,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Editor editor = editorView.getEditor();
         //app crash here
+
+        *//*
+         * Second crash:
+         * com.myscript.iink.demo A/libc: Fatal signal 6 (SIGABRT), code -6 in tid 5087 (cript.iink.demo)
+         *
+         * this crash happen when we comment the below three lines
+         * *//*
         editor.setPart(null);
         editor.clear();
 
         Configuration conf = editor.getConfiguration();
         conf.setString("text.configuration.name", "textconfiguration2");
         documentController.currentPart = documentController.currentPackage.createPart("Text");
-        editor.setPart(documentController.currentPart);
+        editor.setPart(documentController.currentPart);*/
+        Editor editor = editorView.getEditor();
+        clearEditorBeforeSetConfiguration();
+        Configuration conf = editor.getConfiguration();
+        conf.setString("text.configuration.name", "textconfiguration2");
+        editor.setPart(documentController.currentPackage.createPart("Text"));
 
     }
 
